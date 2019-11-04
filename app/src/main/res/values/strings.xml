@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">menu_template</string>
+    <string name="item_one">item one</string>
+    <string name="item_two">item_two</string>
+</resources>
