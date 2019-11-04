@@ -9,4 +9,8 @@
     <string name="context_action_one">context action one</string>
     <string name="context_action_two">context action two</string>
     <string name="context_action_three">context action three</string>
+    <string name="pop_up">Pop Up Menu Button</string>
+    <string name="pop_up_one">pop up one</string>
+    <string name="pop_up_two">pop up two</string>
+    <string name="pop_up_three">pop up three</string>
 </resources>
