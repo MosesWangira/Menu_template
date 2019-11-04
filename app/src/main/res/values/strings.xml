@@ -2,4 +2,11 @@
     <string name="app_name">menu_template</string>
     <string name="item_one">item one</string>
     <string name="item_two">item_two</string>
+    <string name="download">download</string>
+    <string name="copy">copy</string>
+    <string name="share_link">share link</string>
+    <string name="moses_ouma_wangira_developer">Moses Ouma Wangira (developer)</string>
+    <string name="context_action_one">context action one</string>
+    <string name="context_action_two">context action two</string>
+    <string name="context_action_three">context action three</string>
 </resources>

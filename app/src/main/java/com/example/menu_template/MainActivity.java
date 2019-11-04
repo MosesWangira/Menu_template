@@ -2,16 +2,80 @@ package com.example.menu_template;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.ActionMode;
+import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
+    ActionMode mActionMode;
+
+    private ActionMode.Callback mActionModeCallBack = new ActionMode.Callback() {
+        @Override
+        public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+            MenuInflater inflater = getMenuInflater();
+            inflater.inflate(R.menu.action_mode_contexual_menu, menu);
+            return true;
+        }
+
+        @Override
+        public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+            return false;
+        }
+
+        @Override
+        public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+            switch (item.getItemId()){
+                case R.id.action_context_menu_one:
+                    Toast.makeText(MainActivity.this, "action context one clicked", Toast.LENGTH_SHORT).show();
+                    mode.finish();
+                    return true;
+                case R.id.action_context_menu_two:
+                    Toast.makeText(MainActivity.this, "action context two clicked", Toast.LENGTH_SHORT).show();
+                    mode.finish();
+                    return true;
+                case R.id.action_context_menu_three:
+                    Toast.makeText(MainActivity.this, "action context three clicked", Toast.LENGTH_SHORT).show();
+                    mode.finish();
+                    return true;
+                    default:
+                        return  false;
+            }
+        }
+
+        @Override
+        public void onDestroyActionMode(ActionMode mode) {
+            mActionMode = null;
+        }
+    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        TextView tv = findViewById(R.id.floating_context_text);
+        this.registerForContextMenu(tv);
+
+        /**
+         * Button for action mode contexual menu
+         * */
+        Button cm = findViewById(R.id.action_mode_contexual);
+        cm.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                if(mActionMode != null){
+                    return false;
+                }
+                mActionMode = startActionMode(mActionModeCallBack);
+                return true;
+            }
+        });
     }
 
     /**
@@ -32,10 +96,46 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.item_one:
                 //what is to be done when item one is clicked
+                Toast.makeText(this, "option menu item one", Toast.LENGTH_SHORT).show();
+                return true;
             case R.id.item_two:
                 ////what is to be done when item one is clicked
+                Toast.makeText(this, "option menu item two", Toast.LENGTH_SHORT).show();
+                return true;
             default:
-            return super.onOptionsItemSelected(item);
+                return super.onOptionsItemSelected(item);
         }
+    }
+
+    /**
+     * override onCreateContextMenu for floating context menu
+     * on long press its menu items are displayed
+     * */
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.floating_context_menu, menu);
+    }
+
+    /**
+     * onContextItemSelected enables handling of clicks of floating context that pops up on long press in floating context menu
+     * */
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.copy:
+                Toast.makeText(this, "copying item", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.download:
+                Toast.makeText(this, "Downloading", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.share_link:
+                Toast.makeText(this, "sharing link", Toast.LENGTH_SHORT).show();
+                break;
+            default:
+                return super.onContextItemSelected(item);
+        }
+        return true;
     }
 }

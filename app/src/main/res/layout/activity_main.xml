@@ -7,12 +7,35 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/floating_context_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:fontFamily="@font/aladin"
+        android:text="@string/moses_ouma_wangira_developer"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
+        android:textStyle="bold"
+        android:textSize="20sp"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/action_mode_contexual"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#ffffff"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:text="Show Action Mode Context Menu"
+        android:background="#E65100"
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/floating_context_text"
+        app:layout_constraintVertical_bias="0.129" />
 
 </android.support.constraint.ConstraintLayout>
