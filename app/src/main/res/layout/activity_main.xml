@@ -17,7 +17,8 @@
         app:layout_constraintRight_toRightOf="parent"
         android:textStyle="bold"
         android:textSize="20sp"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        />
 
     <Button
         android:id="@+id/action_mode_contexual"
@@ -26,8 +27,8 @@
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="8dp"
-        android:background="#E65100"
-        android:text="Show Action Mode Context Menu"
+        android:background="@drawable/button_background"
+        android:text="@string/show_action_mode_context_menu"
         android:textAllCaps="false"
         android:textColor="#ffffff"
         android:textSize="20sp"
@@ -36,7 +37,8 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/floating_context_text"
-        app:layout_constraintVertical_bias="0.129" />
+        app:layout_constraintVertical_bias="0.129"
+        />
 
     <Button
         android:id="@+id/pop_up_button"
@@ -46,7 +48,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="8dp"
-        android:background="#E65100"
+        android:background="@drawable/button_background"
         android:text="@string/pop_up"
         android:textAllCaps="false"
         android:textColor="#ffffff"
@@ -58,5 +60,28 @@
         app:layout_constraintTop_toBottomOf="@+id/action_mode_contexual"
         app:layout_constraintVertical_bias="0.082"
         android:onClick="showPopUpMenu"/>
+
+    <Button
+        android:id="@+id/pop_up_dialogue_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/button_background"
+        android:onClick="showPopUpDialog"
+        android:text="@string/pop_up_dialogue_button"
+        android:textAllCaps="false"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pop_up_button"
+        app:layout_constraintVertical_bias="0.179"
+        />
+
 
 </android.support.constraint.ConstraintLayout>

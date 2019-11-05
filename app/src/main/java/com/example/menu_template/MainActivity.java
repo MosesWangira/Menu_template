@@ -1,5 +1,6 @@
 package com.example.menu_template;
 
+import android.app.Dialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.ActionMode;
@@ -14,6 +15,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
+
+    Dialog custom_pop_up_dialogue;
 
     ActionMode mActionMode;
 
@@ -60,8 +63,11 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         TextView tv = findViewById(R.id.floating_context_text);
         this.registerForContextMenu(tv);
+
+        custom_pop_up_dialogue = new Dialog(this);
 
         /**
          * Button for action mode contexual menu
@@ -162,5 +168,17 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
             default:
                 return false;
         }
+    }
+
+    public void showPopUpDialog(View view) {
+        custom_pop_up_dialogue.setContentView(R.layout.custom_pop_up_dialogue);
+        Button pay = custom_pop_up_dialogue.findViewById(R.id.pay);
+        pay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                custom_pop_up_dialogue.dismiss();
+            }
+        });
+        custom_pop_up_dialogue.show();
     }
 }

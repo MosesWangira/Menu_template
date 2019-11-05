@@ -13,4 +13,10 @@
     <string name="pop_up_one">pop up one</string>
     <string name="pop_up_two">pop up two</string>
     <string name="pop_up_three">pop up three</string>
+    <string name="pop_up_dialogue_button">Pop Up Dialogue Button</string>
+    <string name="show_action_mode_context_menu">Show Action Mode Context Menu</string>
+    <string name="phone_number">phone number</string>
+    <string name="amount">Amount</string>
+    <string name="m_pesa_payment">M-PESA PAYMENT</string>
+    <string name="pay">PAY</string>
 </resources>
